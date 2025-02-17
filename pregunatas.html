@@ -1,0 +1,825 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Test Emprendedor</title>
+ <link rel="stylesheet" href="aplicacionesExternas.css" type="text/css" />
+ <script src="https://kit.fontawesome.com/d55e038903.js" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="css/style_layers.css" type="text/css" />
+ <link rel="stylesheet" href="style.css">
+
+ <STYLE type="text/css">
+/* Estilo de capas*/
+
+#layer1{
+	position: absolute; margin-left: 450px ; visibility: hidden; width: 500px; left: auto; right: auto; top: 150px; background-color: #ece7e6; border: 1px solid #000; padding: 10px; 
+	z-index:1000
+	}
+#layer2{
+	position: absolute; margin-left: 450px ; visibility: hidden; width: 500px;  left: auto; right: auto; top: 150px; background-color: #ece7e6; border: 1px solid #000; padding: 10px; 
+	z-index:1000
+	}
+#layer3{
+	position: absolute;margin-left: 450px ; visibility: hidden; width: 500px;  left: auto; right: auto; top: 400px; background-color: #fff; border: 1px solid #4a74be; padding: 10px; 
+	 z-index:1000
+	}
+.TD.BDnivel3{         
+	text-align:left;
+	margin:0.5em;
+	padding:0.2em 0.2em 0.2em 0.5em;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#4F5D68;
+	border-bottom:0.06em #A0C9F7 solid;
+	border-left:0.06em #4A74BE solid;
+	border-right:0.06em #4A74BE solid;
+	background-color:#FFFFFF;
+}
+	
+ </STYLE>
+
+<script>
+
+var numeroPreguntas = 20;
+
+var texto1="60 ó más puntos: "+"\n"+  "Sin duda dispones de un gran potencial y tu perfil se asemeja bastante al del emprendedor que hemos estado viendo. Ello no quiere decir que ya tengas asegurado el éxito pero sin duda a nivel personal partes de una buena base. Continua trabajando.";
+var texto2="De 30 a 59 puntos: "+ "\n"+ "En principio reúnes bastantes de las características adecuadas para ser un buen emprendedor. No obstante hay ciertos puntos en los que distas un poco de serlo. Deberías analizar tus puntos débiles y marcarte una serie de acciones concretas para mejorarlos en un plazo determinado de tiempo.";
+var texto3 = "Menos de 30 puntos: "+ "\n"+ "Aunque en tu perfil hay alguno de los caracteres de un emprendedor, en la mayoría de aspectos o te asalta la duda o te sientes inseguro. Intenta analizar las razones de todo eso y procura adquirir hábitos emprendedores si realmente lo que quieres es llevar adelante tu propia empresa.";
+
+
+function evaluar(){
+	var totalPuntuacion = 0;
+	for (j=0;j<numeroPreguntas;j++){
+    	for(i=0;i<document.forms[j].GrupoOpciones.length;i++){
+			if(document.forms[j].GrupoOpciones[i].checked) {
+				totalPuntuacion = totalPuntuacion + parseInt(document.forms[j].GrupoOpciones[i].value);
+				}
+		}
+	}
+	<!--location.reload();-->
+	
+	if (totalPuntuacion < 31){
+		setVisible('layer3');
+		return;
+	}
+	else if (totalPuntuacion < 60){
+		setVisible('layer2');
+		return;
+	}
+	else {
+		setVisible('layer1');
+		return;
+	}
+
+}
+function ejecutaLocation(){
+	location.reload();
+	return;
+}
+function limpiarFormularioIncial(){
+for (j=0;j<numeroPreguntas;j++){
+    	for(i=0;i<document.forms[j].GrupoOpciones.length;i++){
+			document.forms[j].GrupoOpciones[i].checked = false				
+		}
+	}
+}
+
+x = 20;
+y = 70;
+
+function setVisible(obj) {
+	 obj = document.getElementById(obj);
+	obj.style.visibility = (obj.style.visibility == 'visible') ? 'hidden' : 'visible';
+	 return;
+}
+
+function placeIt(obj) {
+	 obj = document.getElementById(obj);
+	 if (document.documentElement) {
+	  theLeft = document.documentElement.scrollLeft;
+	  theTop = document.documentElement.scrollTop;
+	 } else if (document.body) {
+	  theLeft = document.body.scrollLeft;
+	  theTop = document.body.scrollTop;
+	}
+	theLeft += x;
+	theTop += y;
+	obj.style.left = theLeft + 'px' ;
+	obj.style.top = theTop + 'px' ;
+	setTimeout("placeIt('layer1')",500);
+}			
+
+
+</script>
+</head>
+<body onload="javascript:limpiarFormularioIncial();">
+    <!--header-->
+    <div class="navbar">
+        <a href="index.html">
+            <img src="img/empren.png" width="90"
+            alt="logo energia">
+        </a>
+        <div class="navbar-brand">
+            <h1><span class="color1">Innov</span><span class="color2">Emprende</span></h1>
+        </div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav class="nav-menu">
+            <a href="empren.html">Emprendimiento</a>
+            <a href="innova.html">Innovación</a>
+            <a href="pyme.html">Pymes</a>
+        </nav>
+    </div>
+
+
+
+
+</table>
+<br>
+<h1>Test del emprendedor</h1>
+<table width="750" border="0" class="tabla_BD">
+  <tr>
+    <th class="BD"width="31" bgcolor="CB033B" align="center">N&ordm;</tH>
+    <th class="BD" width="551" bgcolor="CB033B">Pregunta</th>
+    <th class="BD" width="47" bgcolor="CB033B">A</th>
+    <th class="BD" width="46" bgcolor="CB033B">B</th>
+    <th class="BD" width="46" bgcolor="CB033B">C</th>
+    <th class="BD" width="53" bgcolor="CB033B">D</th>
+  </tr>
+  <tr>
+    <td class="BD"><strong>1</strong></td>
+    <td class="BD">&iquest;Te consideras una persona adaptable a los cambios?</td>
+    <td class="BDnivel3" colspan="4" ><form method="post" action="">
+        <table width="200px">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">2</td>
+    <td class="BD">&iquest;Tienes confianza en tus posibilidades y capacidades?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">3</td>
+    <td class="BD">&iquest;Es importante para ti disponer de autonom&iacute;a en el trabajo?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form3" name="form3" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">4</td>
+    <td class="BD">&iquest;Tienes facilidad de comunicaci&oacute;n?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form4" name="form4" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">5</td>
+    <td class="BD">&iquest;Te consideras creativo?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form5" name="form5" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">6</td>
+    <td class="BD">&iquest;Afrontas los problemas con optimismo?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form6" name="form6" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">7</td>
+    <td class="BD">&iquest;Tomas la iniciativa ante situaciones complejas nuevas?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form7" name="form7" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">8</td>
+    <td class="BD">&iquest;Tienes predisposici&oacute;n para asumir riesgos?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form8" name="form8" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">9</td>
+    <td class="BD">&iquest;Tomas notas escritas sobre tus proyectos?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form9" name="form9" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">10</td>
+    <td class="BD">&iquest;Arriesgar&iacute;as recursos propios si pusieras en marcha un proyecto empresarial?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form10" name="form10" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">11</td>
+    <td class="BD">&iquest;Te resultar&iacute;a f&aacute;cil asignar tareas a los dem&aacute;s?</td>
+    <td class="BDnivel3"colspan="4" bgcolor="#CCCCCC"><form id="form11" name="form11" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">12</td>
+    <td class="BD">&iquest;Sabes trabajar en equipo?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form12" name="form12" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">13</td>
+    <td class="BD">&iquest;Sabes administrar tus recursos econ&oacute;micos?</td>
+    <td class="BDnivel3"colspan="4" bgcolor="#CCCCCC"><form id="form13" name="form13" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">14</td>
+    <td class="BD">&iquest;Tienes facilidad para negociar con &eacute;xito?</td>
+    <td class="BDnivel3"colspan="4" bgcolor="#CCCCCC"><form id="form14" name="form14" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">15</td>
+    <td class="BD">&iquest;Planificas de forma rigurosa acciones concretas para el desarrollo de un trabajo o un proyecto?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC"><form id="form15" name="form15" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">16</td>
+    <td class="BD">&iquest;Te planteas los temas con visi&oacute;n de futuro?</td>
+    <td class="BDnivel3"colspan="4" bgcolor="#CCCCCC"><form id="form16" name="form16" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">17</td>
+    <td class="BD">&iquest;Cumples los plazos que te fijas para realizar un trabajo?</td>
+    <td class="BDnivel3"colspan="4" bgcolor="#CCCCCC"><form id="form17" name="form17" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">18</td>
+    <td class="BD">&iquest;Sientes motivaci&oacute;n por conseguir objetivos?</td>
+    <td class="BDnivel3"colspan="4" bgcolor="#CCCCCC"><form id="form18" name="form18" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">19</td>
+    <td class="BD">&iquest;Te consideras profesionalmente bueno en aquello que sabes hacer?</td>
+    <td class="BDnivel3"colspan="4" bgcolor="#CCCCCC"><form id="form19" name="form19" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  <tr>
+    <td class="BD">20</td>
+    <td class="BD">&iquest;Sacrificar&iacute;as tu tiempo libre si el trabajo lo demanda?</td>
+    <td class="BDnivel3" colspan="4" bgcolor="#CCCCCC">
+<form id="form20" name="form20" method="post" action="">
+        <table width="200">
+          <tr>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="4" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="3" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="2" />
+              </div>
+              </label></td>
+            <td><label>
+              <div align="center">
+                <input type="radio" name="GrupoOpciones" value="1" />
+              </div>
+              </label></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+  
+	<div id="layer1">
+		<P align="right"></P>
+		<CENTER><P align="center"><strong> 60 ó más puntos: Sin duda dispones de un gran potencial y tu perfil se asemeja bastante al del 
+		emprendedor que hemos estado viendo. Ello no quiere decir que ya tengas asegurado el éxito pero sin duda a nivel personal partes de 
+		una buena base. Continua trabajando.</strong></p></CENTER><span id="close">
+		<a href="javascript:setVisible('layer1');ejecutaLocation();" style="text-decoration: none"><br clear="left" /><P align="center">
+		<img ALIGN ="CENTER" src="img/aceptaar.webp" width="70px"/></P></a></span>
+	</div>
+	
+	<div id="layer2">
+		<P align="right"></P>
+		<CENTER><P align="center"><strong> De 30 a 59 puntos: En principio reúnes bastantes de las características adecuadas para ser un buen emprendedor.
+		No obstante hay ciertos puntos en los que distas un poco de serlo. Deberías analizar tus puntos débiles y marcarte una serie de acciones concretas 
+		para mejorarlos en un plazo determinado de 	tiempo.</strong></p></CENTER><span id="close">
+		<a href="javascript:setVisible('layer2');ejecutaLocation();" style="text-decoration: none"><br clear="left" /><P align="center">
+		<img ALIGN ="CENTER" src="img/aceptaar.webp" width="70px"/></P></a></span>
+	</div>
+	
+	<div id="layer3">
+		<P align="right"></P>
+		<CENTER><P align="left"><strong>Menos de 30 puntos: </strong> Aunque en tu perfil hay alguno de los caracteres de un emprendedor, en la mayoría de 
+		aspectos o te asalta la duda o te sientes inseguro. Intenta analizar las razones de todo eso y procura adquirir hábitos emprendedores si 
+		realmente lo que quieres es llevar adelante tu propia empresa.</p></CENTER><span id="close">
+		<a href="javascript:setVisible('layer3');ejecutaLocation();" style="text-decoration: none"><br clear="left" /><P align="center">
+		<img ALIGN ="CENTER" src="img/aceptaar.webp" width="70px"/></P></a></span>
+	</div>
+  
+  
+</table>
+<p><strong>A</strong> = S&Iacute; / EN TOTAL ACUERDO | <strong>B</strong> = BASTANTE 
+  / A MENUDO | <strong>C</strong> = ALGO / ALGUNA VEZ | <strong>D </strong>= NO 
+  / EN ABSOLUTO</p>
+<br>
+<form id="form21" name="form21" method="post" action="">
+ <input type="button" name="Evaluar" value="Evaluar" onclick="javascript:evaluar(); "/> 
+</form>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4632269-4");
+pageTracker._trackPageview();
+</script>
+<br>
+<!--footer-->
+<footer>
+  <ul class="social_icon">
+      <li><a href="https://web.facebook.com/enelgreenpower.es/?locale=es_LA&_rdc=1&_rdr"><ion-icon name="logo-facebook"></ion-icon></a></li>
+      <li><a href="https://x.com/enelgreenpower"><i class="fa-brands fa-x-twitter"></i>
+      <li><a href="https://www.instagram.com/enelgreenpower/?hl=es"><ion-icon name="logo-instagram"></ion-icon></a></li>
+      <li><a href="https://www.youtube.com/channel/UC6VfwYnwQvgBIOSjypUOuqw"><i class="fa-brands fa-youtube"></i>
+  </ul>
+  <ul class="menu">
+      <li><a href="/eolica.html">EMPRENDIMIENTO</a></li>
+      <li><a href="/solar.html">INNOVACION</a></li>
+      <li><a href="/pyme.html">PYMES</a></li>
+  </ul>
+  <p>©2021 COPYRIGHT | All Rights Reserved</p>
+</footer>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<a href="https://wa.me/573145977399?text=Hola necesito información acerca de Energias Renovables" target="_blank">
+  <img src="img/whatsapp (1).png" style="width: 50px; height: 50px;" class="whatsapp-icon">
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
+

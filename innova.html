@@ -1,0 +1,165 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovEmprende</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ensayo.css">
+    <link rel="icon" href="img/empren.png">
+    <script src="https://kit.fontawesome.com/d55e038903.js" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <!--header-->
+    <div class="navbar">
+        <a href="index.html">
+            <img src="img/empren.png" width="150"
+            alt="logo energia">
+        </a>
+        <div class="navbar-brand">
+            <h1><span class="color1">Innov</span><span class="color2">Emprende</span></h1>
+        </div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav class="nav-menu">
+            <a href="empren.html">Emprendimiento</a>
+            <a href="innova.html">Innovación</a>
+            <a href="pyme.html">Pymes</a>
+        </nav>
+    </div>
+    <div class="card-texto">
+        <section class="card">
+            <div class="card-content">
+                <h1>INNOVACION</h1>
+                <p>A pesar de los avances significativos experimentados en los últimos años, Colombia se encuentra aún lejos de alcanzar los niveles de innovación de las economías más desarrolladas, situándose en el puesto 66 del Índice Mundial de Innovación. Desde el Laboratorio de Innovación, Creatividad y Nuevas Tecnologías de la Universidad Nacional de Colombia-LAB101, se ha realizado un exhaustivo análisis de los índices mundiales de innovación, identificando tanto los progresos notables como las áreas críticas
+                    para el país. <br><br>
+                    Jhon García, líder del LAB101, enfatiza la necesidad de una visión integral de la innovación que involucre a diversos sectores, incluyendo el empresarial, académico y gubernamental. García sostiene que estos actores desempeñan un papel crucial en el progreso de la sociedad colombiana, añadiendo: «Es fundamental entender que la innovación no solo debe ser considerada desde una perspectiva empresarial, sino también desde su impacto y aplicación en la comunidad, lo cual abarca tanto el ámbito estatal como los esfuerzos y entornos propicios para fomentar la innovación en colaboración con las comunidades».</p>
+            </div>
+            <div class="card-image">
+                <img src="img/Innova.jpg" alt="Imagen de fondo de energía eólica">
+            </div>
+        </section>
+    </div> <br>
+
+    <div class="grafico">
+        <h2>Índice Mundial de Innovación 2023 - América Latina</h2>
+    <div class="chart-container">
+        <svg width="600" height="400"></svg>
+    </div>
+
+    <script>
+        // Datos del Índice Mundial de Innovación 2023
+        const data = [
+            { country: "Brasil", rank: 49 },
+            { country: "Chile", rank: 52 },
+            { country: "México", rank: 58 },
+            { country: "Uruguay", rank: 63 },
+            { country: "Colombia", rank: 66 }
+        ];
+
+        // Configuración del SVG
+        const width = 600;
+        const height = 400;
+        const margin = { top: 40, right: 30, bottom: 50, left: 50 };
+
+        const svg = d3.select("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        const xScale = d3.scaleBand()
+            .domain(data.map(d => d.country))
+            .range([margin.left, width - margin.right])
+            .padding(0.4);
+
+        const yScale = d3.scaleLinear()
+            .domain([40, 70])  // Rango de posiciones en el índice
+            .range([height - margin.bottom, margin.top]);
+
+        // Ejes
+        const xAxis = d3.axisBottom(xScale);
+        const yAxis = d3.axisLeft(yScale).ticks(5);
+
+        svg.append("g")
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+            .call(xAxis)
+            .attr("class", "axis-label");
+
+        svg.append("g")
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(yAxis)
+            .attr("class", "axis-label");
+
+        // Barras del gráfico
+        svg.selectAll(".bar")
+            .data(data)
+            .enter()
+            .append("rect")
+            .attr("class", d => d.country === "Colombia" ? "bar colombia" : "bar")
+            .attr("x", d => xScale(d.country))
+            .attr("y", d => yScale(d.rank))
+            .attr("width", xScale.bandwidth())
+            .attr("height", d => height - margin.bottom - yScale(d.rank));
+
+        // Etiquetas de valores
+        svg.selectAll(".label")
+            .data(data)
+            .enter()
+            .append("text")
+            .attr("x", d => xScale(d.country) + xScale.bandwidth() / 2)
+            .attr("y", d => yScale(d.rank) - 5)
+            .attr("text-anchor", "middle")
+            .style("font-size", "12px")
+            .style("fill", "#003366") /* Texto azul oscuro */
+            .text(d => d.rank);
+    </script>
+    </div>
+    
+    <div class="card-texto">
+        <section class="card">
+            <div class="card-image">
+                <img src="img/colombia.jpg" alt="Imagen de fondo de energía eólica">
+            </div>
+            <div class="card-content">
+                <h1>COSAS A MEJORAR</h1>
+                <p>● Fortalecimiento de la inversión en investigación y desarrollo (I+D): es esencial que tanto el sector público como el privado asignen mayores recursos a la I+D para impulsar la generación de nuevo conocimiento y tecnologías. <br>
+
+                    ● Mejora en la calidad de la educación: se requiere un fortalecimiento en la formación en áreas como ciencia, tecnología, ingeniería y matemáticas (STEM), desde la educación básica hasta la superior. <br>
+                    
+                    ● Reducción de la brecha digital: es crucial cerrar la brecha digital mediante la implementación de medidas sólidas y sostenibles que garanticen el acceso equitativo a internet y a las tecnologías de la información y la comunicación (TIC). <br>
+                    
+                    ● Cultura de la innovación: es importante crear un entorno favorable a la innovación en el que se valore la creatividad, la toma de riesgos y el aprendizaje a partir de los errores. <br>
+                    
+                     <br>
+
+                     Los avances en innovación en Colombia son alentadores y representan una oportunidad para el desarrollo del país. Sin embargo, aún queda un trecho por recorrer para equiparar los niveles de innovación de las economías más desarrolladas. Es imperativo promover una cultura de la innovación, donde se valore la creatividad, la toma de riesgos y el aprendizaje a partir de los errores.<br>
+                </p>
+            </div>
+        </section>
+    </div>
+ <!--footer-->
+ <footer>
+    <ul class="social_icon">
+        <li><a href="https://web.facebook.com/enelgreenpower.es/?locale=es_LA&_rdc=1&_rdr"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="https://x.com/enelgreenpower"><i class="fa-brands fa-x-twitter"></i>
+        <li><a href="https://www.instagram.com/enelgreenpower/?hl=es"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="https://www.youtube.com/channel/UC6VfwYnwQvgBIOSjypUOuqw"><i class="fa-brands fa-youtube"></i>
+    </ul>
+    <ul class="menu">
+        <li><a href="empren.html">EMPRENDIMIENTO</a></li>
+        <li><a href="innova.html">INNOVACION</a></li>
+        <li><a href="pyme.html">PYMES</a></li>
+    </ul>
+    <p>©2021 COPYRIGHT | All Rights Reserved</p>
+</footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <a href="https://wa.me/573145977399?text=Hola necesito información acerca de Energias Renovables" target="_blank">
+        <img src="img/whatsapp (1).png" style="width: 50px; height: 50px;" class="whatsapp-icon">
+    </a>
+    <script src="script.js"></script>
+</body>
+</html>

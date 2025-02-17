@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovEmprende</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/empren.png">
+    <script src="https://kit.fontawesome.com/d55e038903.js" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <img src="img/empren.png" alt="Cargando...">
+    </div>
+    <!--header-->
+    <div class="navbar">
+        <a href="index.html">
+            <img src="img/empren.png" width="90" alt="logo energia">
+        </a>
+        <div class="navbar-brand">
+            <h1><span class="color1">Innov</span><span class="color2">Emprende</span></h1>
+        </div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav class="nav-menu">
+            <a href="empren.html">Emprendimiento</a>
+            <a href="innova.html">Innovación</a>
+            <a href="pyme.html">Pymes</a>
+        </nav>
+    </div>
+    <!--Slider-->
+    <div class="slider">
+        <div class="slide active">
+            <div class="content">
+                <h1>EMPIEZA TU NUEVA</h1>
+                <p>IDEA DE NEGOCIO</p>
+                <h3>¿Has soñado con tener tu propio negocio pero no sabes por dónde empezar? Emprender puede parecer un
+                    reto, pero con la mentalidad y las estrategias adecuadas, puedes convertir tu idea en una fuente de
+                    ingresos real. No esperes el momento perfecto, ¡créalo! Descubre cómo dar tus primeros pasos, evitar
+                    errores comunes y construir un negocio sólido desde cero. ¿Listo para tomar el control de tu futuro?
+                    <h3>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Portafolio-->
+    <div class="destination-container">
+        <h2 class="section-title">PARA TENER EN CUENTA</h2>
+        <div class="destination-grid">
+            <div class="destination-item" onclick="handleClick('ENERGIA EOLICA')">
+                <a href="empren.html">
+                    <img src="img/empren2.png" alt="United States">
+                    <div class="destination-info">
+                        <h3>EMPRENDIMIENTO</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="destination-item" onclick="handleClick('ENERGIA SOLAR')">
+                <a href="innova.html">
+                    <img src="img/Innova2.jpg" alt="United Kingdom">
+                    <div class="destination-info">
+                        <h3>INNOVACION</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="destination-item" onclick="handleClick('ENERGIA HIDRAULICA')">
+                <a href="pyme.html">
+                    <img src="img/pyme2.jpg" alt="Australia">
+                    <div class="destination-info">
+                        <h3>PYMES</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--Energias-->
+    <div class="tamaño">
+        <div class="content-section">
+            <div class="content-image">
+                <img src="img/emprendi.webp" alt="Descripción de la imagen">
+            </div>
+            <div class="content-text">
+                <h1>EMPRENDIMIENTO</h1>
+                <p>Un informe de la Cámara de Emprendimiento y Aceleración de la Andi, con datos del Global
+                    Entrepreneurship Monitor, GEM, y Prodem, destaca a Colombia como un terreno fértil para startups
+                    innovadoras y empresas de crecimiento acelerado. De acuerdo con el estudio, en el período 2013-2023,
+                    las startups colombianas recaudaron un capital de US$4.621 millones, ubicando a Colombia como el
+                    tercer país en levantamiento de capital emprendedor en Latinoamérica.<a
+                        href="empren.html">..más</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="content-text">
+                <h1>INNOVACION</h1>
+                <div class="service-box">
+                    <div class="service-info">
+                        <i class='bx bx-football'></i>
+                        <p>A pesar de los avances significativos experimentados en los últimos años, Colombia se
+                            encuentra aún lejos de alcanzar los niveles de innovación de las economías más
+                            desarrolladas, situándose en el puesto 66 del Índice Mundial de Innovación. Desde el
+                            Laboratorio de Innovación, Creatividad y Nuevas Tecnologías de la Universidad Nacional de
+                            Colombia-LAB101, se ha realizado un exhaustivo análisis de los índices mundiales de
+                            innovación, identificando tanto los progresos notables como las áreas críticas
+                            para el país.<a href="innova.html">..más</a> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="content-image">
+                <img src="img/Innova.jpg" alt="Descripción de la imagen">
+            </div>
+        </div>
+        <div class="content-section">
+            <div class="content-image">
+                <img src="img/pyme.jfif" alt="Descripción de la imagen">
+            </div>
+            <div class="content-text">
+                <h1>PYMES</h1>
+                <p>
+                    Las pequeñas y medianas empresas (pymes) son relevantes en todo el mundo porque significan el primer
+                    paso de un emprendedor, además de que representan el sustento de millones de familias. De hecho la
+                    ONU indica que en todo el mundo el 90 % de las empresas entran en esta categoría, alojando a más del
+                    60 % de la fuerza laboral y las responsables de generar el 50 % del PIB mundial.<a
+                        href="pyme.html">..más</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <!--footer-->
+    <footer>
+        <ul class="social_icon">
+            <li><a href="https://web.facebook.com/enelgreenpower.es/?locale=es_LA&_rdc=1&_rdr">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a></li>
+            <li><a href="https://x.com/enelgreenpower"><i class="fa-brands fa-x-twitter"></i>
+            <li><a href="https://www.instagram.com/enelgreenpower/?hl=es">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a></li>
+            <li><a href="https://www.youtube.com/channel/UC6VfwYnwQvgBIOSjypUOuqw"><i class="fa-brands fa-youtube"></i>
+        </ul>
+        <ul class="menu">
+            <li><a href="eolica.html">EMPRENDIMIENTO</a></li>
+            <li><a href="solar.html">INNOVACION</a></li>
+            <li><a href="pyme.html">PYMES</a></li>
+        </ul>
+        <p>©2021 COPYRIGHT | All Rights Reserved</p>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <a href="https://wa.me/573145977399?text=Hola necesito información acerca de Energias Renovables" target="_blank">
+        <img src="img/whatsapp (1).png" style="width: 50px; height: 50px;" class="whatsapp-icon">
+    </a>
+    <a href="pregunatas.html " target="_blank">
+        <img src="img/icono.png" style="width: 50px; height: 50px;" class="encuesta-icon">
+    </a>
+    <script src="script.js"></script>
+</body>
+
+</html>
